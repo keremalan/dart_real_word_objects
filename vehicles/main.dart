@@ -33,16 +33,17 @@ class Vehicle {
     }
   }
 
-  takePassenger(passengerNumber) {
-    if (currentPassengerNumber > passengerSeat) { // check avability of passengerSeat
+  takePassenger(int passengerNumber) {
+    if (currentPassengerNumber > passengerSeat && doorIsLocked == false) { // check avability of passengerSeat
       print("Seats can't take $passengerNumber people.");
-    } else if (currentPassengerNumber == passengerNumber && doorIsLocked == true) { // passengerSeats are avaible and doors locked
+    } else if (currentPassengerNumber == passengerNumber && doorIsLocked == false) { // passengerSeats are avaible and doors locked
       print("Passengers can't enter. Doors locked.");
     } else {
-      currentPassengerNumber + passengerNumber; // add passengerNumber to currentPassengerNumber for calculate how much people in car
+      currentPassengerNumber += passengerNumber; // add passengerNumber to currentPassengerNumber for calculate how much people in car
       print("$passengerNumber passenger enter your car.");
+      print("$currentPassengerNumber passenger in your car, now.");
     }
-  }
+  } 
 
   takeFuel(fuelAdapterType, x) {
     if ( fuelAdapterType == fuelType && x > tankSize ) { // check adapter type and can tankSize take this fuel size?
@@ -65,5 +66,8 @@ main () {
   vehicle0.connectFuelAdapter();
   vehicle0.takeFuel('gasoline', 5);
   vehicle0.takePassenger(2);
-  print(vehicle0.currentPassengerNumber);
+  vehicle0.takePassenger(2);
+  vehicle0.openLock();
+  vehicle0.takePassenger(2);
+  vehicle0.takePassenger(2);
 }
