@@ -19,42 +19,42 @@ class Vehicle {
   Vehicle(this.name, this.type, this.powerType, this.fuelType, this.fuelAdapterConnect, this.wheels, this.tankSize, this.tankNowSize, this.door, this.passengerSeat, this.doorIsLocked, this.consumption, this.currentPassengerNumber, this.trouble, this.maxSpeed);
 
   fullDepo() {
-    tankSize == 100;
+    tankSize == 100; // tank will fulled
   }
   connectFuelAdapter() {
-    fuelAdapterConnect = true;
+    fuelAdapterConnect = true; // fuelAdapter is connected
   }
 
   openLock() {
-    if (doorIsLocked == true) {
-      doorIsLocked == false;
+    if (doorIsLocked == true) { // check doorIsLocked
+      doorIsLocked == false; // change value of doorIsLocked
     } else {
       print("Your doors not locked.");
     }
   }
 
   takePassenger(passengerNumber) {
-    if (currentPassengerNumber > passengerSeat) {
+    if (currentPassengerNumber > passengerSeat) { // check avability of passengerSeat
       print("Seats can't take $passengerNumber people.");
-    } else if (currentPassengerNumber == passengerNumber && doorIsLocked == true) {
+    } else if (currentPassengerNumber == passengerNumber && doorIsLocked == true) { // passengerSeats are avaible and doors locked
       print("Passengers can't enter. Doors locked.");
     } else {
-      currentPassengerNumber + passengerNumber;
+      currentPassengerNumber + passengerNumber; // add passengerNumber to currentPassengerNumber for calculate how much people in car
       print("$passengerNumber passenger enter your car.");
     }
   }
 
   takeFuel(fuelAdapterType, x) {
-    if ( fuelAdapterType == fuelType && x > tankSize ) {
+    if ( fuelAdapterType == fuelType && x > tankSize ) { // check adapter type and can tankSize take this fuel size?
       print("Tank is full!");
-    } else if (fuelType != fuelAdapterType) { 
+    } else if (fuelType != fuelAdapterType) {  // if fuelType and fuelAdapterType not equal like your care use a gasoline but you want a add dizel
       print("Your vehicle is not use $fuelType");      
-    } else if (fuelAdapterConnect != true) {
+    } else if (fuelAdapterConnect != true) { //if fuelAdapter not connect
       print("Please connect fueltAdapter!");
     } else {
       print("You fuel adapter is connected.");
       print("Starting $x unit transfer to your car.");
-      tankNowSize + x;
+      tankNowSize + x; // add fuel size to current fuel in tank
       print("Fuel is successfully transfered your car.");
     }
   }
