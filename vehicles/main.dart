@@ -64,7 +64,7 @@ class Vehicle {
 main () async {
   Vehicle vehicle0 = Vehicle('Albea', 'road', 'fuel', 'gasoline', false, 4, 100, 0, 2, 4, true, 4, 0, false, 180);
   vehicle0.connectFuelAdapter();
-  Future f = vehicle0.takeFuel('gasoline', 5);
+  vehicle0.takeFuel('gasoline', 5);
   print('5 liter gasoline is transfering your car.');
   print('You paid the bill');
   print('5 liter gasoline is transfered.');
